@@ -3,7 +3,7 @@
 namespace Sitruc\KeenIO;
 
 use Illuminate\Support\Facades\Facade;
-use Sitruc\KeenIO\Testing\Fakes\KeenIOFake;
+use Sitruc\KeenIO\Test\Fakes\KeenIOFake;
 
 class KeenIOFacade extends Facade
 {
