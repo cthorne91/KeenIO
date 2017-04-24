@@ -2,7 +2,7 @@
 
 namespace Sitruc\KeenIO\Test;
 
-use Sitruc\KeenIO\KeenIOFacade;
+use Sitruc\KeenIO\Facades\KeenIO;
 use Sitruc\KeenIO\KeenServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
@@ -37,7 +37,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'KeenIO' => KeenIOFacade::class,
+            'KeenIO' => KeenIO::class,
         ];
     }
 }
