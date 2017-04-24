@@ -17,6 +17,13 @@ class KeenEventTest extends TestCase
         $this->assertEquals('value', $event->keenData()['key']);
     }
 
+    public function test_with_arguments_throws_exception_without_parameters()
+    {
+        $this->setExpectedException(\InvalidArgumentException::class);
+
+        KeenEvent::fromArguments([]);
+    }
+
     public function test_with_arguments_static_initializer_with_event()
     {
         $eventArgument = new KeenEvent('A Title', ['key' => 'value']);

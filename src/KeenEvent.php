@@ -24,7 +24,7 @@ class KeenEvent implements KeenEventInterface
     public static function fromArguments($arguments)
     {
         if (empty($arguments)) {
-            throw \InvalidArgumentException('Invalid arguments given in '.__METHOD__.' on '.__CLASS__.'. Arguments cannot be empty.');
+            throw new \InvalidArgumentException('Invalid arguments given in '.__METHOD__.' on '.__CLASS__.'. Arguments cannot be empty.');
         }
 
         $event = $arguments[0];
