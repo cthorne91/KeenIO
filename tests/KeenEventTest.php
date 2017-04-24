@@ -67,7 +67,7 @@ class KeenEventTest extends TestCase
     {
         KeenIO::fake();
 
-        $event = (new KeenEvent('Queued Event', ['key' => 'value']))->queue();
+        $event = (new KeenEvent('Queued Event', ['key' => 'value']))->queued();
 
         KeenIO::addEvent($event);
 
