@@ -2,15 +2,69 @@
 
 namespace Sitruc\KeenIO\Test;
 
+use KeenIO;
 use Sitruc\KeenIO\KeenEvent;
+use Sitruc\KeenIO\Test\Fakes\KeenIOFake;
+use Illuminate\Contracts\Queue\ShouldQueue; 
 
-class KeenEventTest extends \PHPUnit_Framework_TestCase
+class KeenEventTest extends TestCase 
 {
+    public function test_with_arguments_static_initializer_with_title_array()
+    {
+        $event = KeenEvent::fromArguments(['A Title', ['key' => 'value']]);
+
+        $this->assertEquals('A Title', $event->keenTitle());
+        $this->assertEquals('value', $event->keenData()['key']);
+    }
+
+    public function test_with_arguments_static_initializer_with_event()
+    {
+        $eventArgument = new KeenEvent('A Title', ['key' => 'value']);
+        $event = KeenEvent::fromArguments([$eventArgument]);
+
+        $this->assertInstanceOf(KeenEvent::class, $event);
+        $this->assertEquals('A Title', $event->keenTitle());
+        $this->assertEquals('value', $event->keenData()['key']);
+    }
+
     public function test_title_and_data_are_set()
     {
         $event = new KeenEvent('A Title', ['key' => 'value']);
         $this->assertEquals('A Title', $event->keenTitle());
         $this->assertEquals('value', $event->keenData()['key']);
+    }
+
+    public function test_event_will_sent()
+    {
+        KeenIO::fake();
+
+        $event = new KeenEvent('Queued Event', ['key' => 'value']);
+
+        KeenIO::addEvent($event);
+
+        KeenIO::assertSent('Queued Event');
+    }
+
+    public function test_subclass_of_event_and_implementation_of_should_queue_will_queue()
+    {
+        KeenIO::fake();
+
+        $event = new class('Event Title', ['key' => 'value']) extends KeenEvent implements ShouldQueue {};
+
+        KeenIO::addEvent($event);
+
+        KeenIO::assertQueued('Event Title');
+    }
+
+    public function test_base_event_will_queue_when_set()
+    {
+        KeenIO::fake();
+
+        $event = (new KeenEvent('Queued Event', ['key' => 'value']))->queue();
+
+        KeenIO::addEvent($event);
+
+        KeenIO::assertQueued('Queued Event');
     }
     
     public function test_data_enrichment_enrichment()
