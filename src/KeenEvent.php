@@ -21,6 +21,20 @@ class KeenEvent implements KeenEventInterface
         $this->keenData = $data;
     }
 
+    public static function fromArguments($arguments)
+    {
+        if (empty($arguments)) {
+            throw \InvalidArgumentException('Invalid arguments given in '.__METHOD__.' on '.__CLASS__.'. Arguments cannot be empty.');
+        }
+
+        $event = $arguments[0];
+        if (! ($event instanceof KeenEventInterface)) {
+            $event = new static($arguments[0], $arguments[1]);
+        }
+
+        return $event;
+    }
+
     public function keenTitle()
     {
         return $this->keenTitle;

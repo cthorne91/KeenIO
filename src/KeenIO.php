@@ -16,21 +16,12 @@ class KeenIO
 
     public function __call($method, $arguments)
     {
-        if ($this->isCallingAddEventWithKeenData($method, $arguments)) {
-            $keenEvent = $arguments[0];
-            $arguments[0] = $keenEvent->keenTitle();
-            $arguments[1] = $keenEvent->keenData();
+        if ($method == 'addEvent') {
+            $keenEvent = KeenEvent::fromArguments($arguments);
+
+            return $this->client->addEvent($keenEvent->keenTitle(), $keenEvent->keenData());
         }
 
         return $this->client->$method(...$arguments);
-    }
-
-    protected function isCallingAddEventWithKeenData($method, $arguments)
-    {
-        return (
-            $method == 'addEvent'&&
-            count($arguments)&&
-            $arguments[0] instanceof KeenEventInterface
-        );
     }
 }
