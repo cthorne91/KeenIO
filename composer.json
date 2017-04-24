@@ -16,10 +16,12 @@
         }
     ], 
     "require": {
+        "php": "^7.0",
         "keen-io/keen-io" : "~2.5",
-        "illuminate/support": "5.3.*|5.4.*",
+        "illuminate/support": "5.3.*|5.4.*",  
         "illuminate/filesystem": "5.3.*|5.4.*",
-        "illuminate/config": "5.3.*|5.4.*"
+        "illuminate/config": "5.3.*|5.4.*",
+        "illuminate/contracts": "5.3.*|5.4.*"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
@@ -33,7 +35,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Sitruc\\KeenIO\\Test\\": "tests"
+            "Sitruc\\KeenIO\\Test\\": "tests",
+            "Illuminate\\": "vendor/laravel/framework/src/Illuminate"
         }
     },
     "scripts": {
