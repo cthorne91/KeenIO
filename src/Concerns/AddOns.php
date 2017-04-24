@@ -6,7 +6,7 @@ use Sitruc\KeenIO\AddOns\KeenURL;
 use Sitruc\KeenIO\AddOns\URLParser;
 use Sitruc\KeenIO\AddOns\ReferrerParser;
 use Sitruc\KeenIO\AddOns\DateTimeParser;
-use Sitruc\KeenIO\AddOns\IpAddressParser;
+use Sitruc\KeenIO\AddOns\IPAddressParser;
 use Sitruc\KeenIO\AddOns\UserAgentParser;
 use Sitruc\KeenIO\AddOns\AddOn as KeenAddOn;
 
@@ -35,9 +35,9 @@ trait AddOns
      * @param  string $destination The location of the enriched ip address.
      * @return $this
      */
-    public function enrichIpAddress($source, $destination = 'ip_geo_info')
+    public function enrichIPAddress($source, $destination = 'ip_geo_info')
     {
-        return $this->addOn(new IpAddressParser($source, $destination));
+        return $this->addOn(new IPAddressParser($source, $destination));
     }
 
     /**

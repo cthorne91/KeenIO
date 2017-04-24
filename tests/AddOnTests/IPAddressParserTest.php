@@ -1,12 +1,12 @@
 <?php
 
-use Sitruc\KeenIO\AddOns\IpAddressParser;
+use Sitruc\KeenIO\AddOns\IPAddressParser;
 
-class IpAddressParserTest extends PHPUnit_Framework_TestCase
+class IPAddressParserTest extends PHPUnit_Framework_TestCase
 {
     public function test_ipaddress_parser_can_initialize()
     {
-        $parser = new IpAddressParser('source', 'destination.path');
+        $parser = new IPAddressParser('source', 'destination.path');
 
         $array = $parser->toArray();
 

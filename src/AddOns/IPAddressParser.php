@@ -2,7 +2,7 @@
 
 namespace Sitruc\KeenIO\AddOns;
 
-class IpAddressParser extends AddOn
+class IPAddressParser extends AddOn
 {
     const inputkey = 'ip_address';
 

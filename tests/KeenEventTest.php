@@ -18,7 +18,7 @@ class KeenEventTest extends \PHPUnit_Framework_TestCase
         $event = new KeenEvent('A Title', ['key' => 'value']);
       
         $fluentEvent = $event->enrichDatetime('timestamp', 'timestamp_info')
-              ->enrichIpAddress('ip_address', 'ip_geo_info')
+              ->enrichIPAddress('ip_address', 'ip_geo_info')
               ->enrichUserAgent('user_agent', 'user_agent_info')
               ->enrichURL('url', 'url_info')
               ->enrichReferrer('referrer_url', 'page_url', 'referrer_info');
