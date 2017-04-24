@@ -19,7 +19,7 @@ trait SendsData
         return \Sitruc\KeenIO\Facades\KeenIO::addEvent($this);
     }
 
-    public function queue($shouldQueue = true)
+    public function queued($shouldQueue = true)
     {
         $this->shouldQueue = $shouldQueue;
         
