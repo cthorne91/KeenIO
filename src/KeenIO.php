@@ -3,7 +3,6 @@
 namespace Sitruc\KeenIO;
 
 use KeenIO\Client\KeenIOClient;
-use Sitruc\KeenIO\ReportEventQueued;
 use Sitruc\KeenIO\Contracts\KeenEvent as KeenEventInterface;
 
 class KeenIO
@@ -24,11 +23,6 @@ class KeenIO
         }
 
         return $this->client->$method(...$arguments);
-    }
-
-    public static function queue(KeenEventInterface $keenEvent)
-    {
-        dispatch(new ReportEventQueued($keenEvent));
     }
 
     protected function isCallingAddEventWithKeenData($method, $arguments)

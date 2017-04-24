@@ -20,6 +20,21 @@ trait SendsData
         return KeenIO::addEvent($this);
     }
 
+    public function queue($shouldQueue = true)
+    {
+        $this->shouldQueue = $shouldQueue;
+        
+        return $this;
+    }
+
+    public function willQueue()
+    {
+        return (
+            $this instanceof ShouldQueue||
+            $this->shouldQueue
+        );
+    }
+
     protected function job()
     {
         if ($this instanceof ShouldQueue) {
