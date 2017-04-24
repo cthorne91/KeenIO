@@ -14,7 +14,7 @@ class KeenEventTest extends TestCase
         $event = KeenEvent::fromArguments(['A Title', ['key' => 'value']]);
 
         $this->assertEquals('A Title', $event->keenTitle());
-        $this->assertEquals('value', $event->keenData()['key']);
+        $this->assertEquals('value', $event->keenDataWithAddOns()['key']);
     }
 
     public function test_with_arguments_throws_exception_without_parameters()
@@ -31,14 +31,14 @@ class KeenEventTest extends TestCase
 
         $this->assertInstanceOf(KeenEvent::class, $event);
         $this->assertEquals('A Title', $event->keenTitle());
-        $this->assertEquals('value', $event->keenData()['key']);
+        $this->assertEquals('value', $event->keenDataWithAddOns()['key']);
     }
 
     public function test_title_and_data_are_set()
     {
         $event = new KeenEvent('A Title', ['key' => 'value']);
         $this->assertEquals('A Title', $event->keenTitle());
-        $this->assertEquals('value', $event->keenData()['key']);
+        $this->assertEquals('value', $event->keenDataWithAddOns()['key']);
     }
 
     public function test_event_will_sent()
@@ -86,7 +86,7 @@ class KeenEventTest extends TestCase
        
         $this->assertInstanceOf(KeenEvent::class, $fluentEvent);
 
-        $addOns = $event->keenData()['keen']['addons'];
+        $addOns = $event->keenDataWithAddOns()['keen']['addons'];
         $this->assertDatetimeEnriched($addOns); 
         $this->assertIPAddressEnriched($addOns);
         $this->assertUserAgentEnriched($addOns);

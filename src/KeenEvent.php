@@ -42,6 +42,11 @@ class KeenEvent implements KeenEventInterface
 
     public function keenData()
     {
-        return $this->mergeAddOns($this->keenData);
+        return $this->keenData;
+    }
+
+    public function keenDataWithAddOns()
+    {
+        return $this->mergeAddOns($this->keenData());
     }
 }

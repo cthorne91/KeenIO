@@ -19,7 +19,7 @@ class KeenIO
         if ($method == 'addEvent') {
             $keenEvent = KeenEvent::fromArguments($arguments);
 
-            return $this->client->addEvent($keenEvent->keenTitle(), $keenEvent->keenData());
+            return $this->client->addEvent($keenEvent->keenTitle(), $keenEvent->keenDataWithAddOns());
         }
 
         return $this->client->$method(...$arguments);
