@@ -18,6 +18,6 @@ class ReportEventQueued implements ShouldQueue
 
     public function handle()
     {
-        \KeenIO::addEvent($this->event);
+        return \Sitruc\KeenIO\Facades\KeenIO::addEvent($this->event);
     }
 }

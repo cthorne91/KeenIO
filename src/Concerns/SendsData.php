@@ -2,7 +2,6 @@
 
 namespace Sitruc\KeenIO\Concerns;
 
-use KeenIO;
 use Sitruc\KeenIO\ReportEventQueued;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -17,7 +16,7 @@ trait SendsData
 
     public function handle()
     {
-        return KeenIO::addEvent($this);
+        return \Sitruc\KeenIO\Facades\KeenIO::addEvent($this);
     }
 
     public function queue($shouldQueue = true)
