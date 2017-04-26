@@ -1,3 +1,7 @@
+[![Latest Version](https://img.shields.io/github/release/cthorne91/KeenIO.svg?style=flat-square)](https://github.com/cthorne91/KeenIO/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/sitruc/keenio.svg?style=flat-square)](https://packagist.org/packages/sitruc/keenio)
+
 # A convenient wrapper around the Keen.io PHP SDK for Laravel
 
 Using this package you can send events to keen.io in laravel elegance. Here are a few examples from basic to elegant.
