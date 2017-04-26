@@ -186,15 +186,15 @@ This package requires a you to add your `project_id` `write_key` `read_key` and 
 // config/services.php
 <?php
 return [
+    ...
     'keenio' => [
         'project_id' => env('KEENIO_PROJECT_ID'),
         'write_key'  => env('KEENIO_WRITE_KEY'),
         'read_key'   => env('KEENIO_READ_KEY'),
         'enabled'    => env('KEENIO_ENABLED'),
-    ]
+    ],
+    ...
 ]
-*
-*
 ```
 
 the `enabled` flag is useful if you want to shut off keen reporting in certain environments.
