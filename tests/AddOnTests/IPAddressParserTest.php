@@ -13,9 +13,9 @@ class IPAddressParserTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(isset($array['name']));
         $this->assertTrue(isset($array['output']));
         $this->assertTrue(isset($array['input']));
-        $this->assertTrue(isset($array['input']['ip_address']));
+        $this->assertTrue(isset($array['input']['ip']));
         $this->assertEquals('keen:ip_to_geo', $array['name']);
         $this->assertEquals('destination.path', $array['output']);
-        $this->assertEquals('source', $array['input']['ip_address']);
+        $this->assertEquals('source', $array['input']['ip']);
     }
 }

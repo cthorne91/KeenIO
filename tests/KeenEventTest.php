@@ -102,7 +102,7 @@ class KeenEventTest extends TestCase
 
     protected function assertIPAddressEnriched($addOns)
     {
-        $this->assertEquals('ip_address', $addOns[1]['input']['ip_address']);
+        $this->assertEquals('ip_address', $addOns[1]['input']['ip']);
         $this->assertEquals('ip_geo_info', $addOns[1]['output']);
     }
 
