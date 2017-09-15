@@ -18,10 +18,10 @@
     "require": {
         "php": "^7.0",
         "keen-io/keen-io" : "~2.5",
-        "illuminate/support": "5.3.*|5.4.*",  
-        "illuminate/filesystem": "5.3.*|5.4.*",
-        "illuminate/config": "5.3.*|5.4.*",
-        "illuminate/contracts": "5.3.*|5.4.*"
+        "illuminate/support": "5.3.*|5.4.*|5.5.*",  
+        "illuminate/filesystem": "5.3.*|5.4.*|5.5.*",
+        "illuminate/config": "5.3.*|5.4.*|5.5.*",
+        "illuminate/contracts": "5.3.*|5.4.*|5.5.*"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
@@ -37,6 +37,16 @@
         "psr-4": {
             "Sitruc\\KeenIO\\Test\\": "tests",
             "Illuminate\\": "vendor/laravel/framework/src/Illuminate"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sitruc\\KeenIO\\KeenServiceProvider"
+            ],
+            "aliases": {
+                "KeenIO": "Sitruc\\KeenIO\\Facades\\KeenIO"
+            }
         }
     },
     "scripts": {
