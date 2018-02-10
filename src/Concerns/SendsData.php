@@ -11,6 +11,10 @@ trait SendsData
 
     public function send()
     {
+        if (! $this->willQueue()) {
+            return $this->handle();
+        }
+
         return dispatch($this->job());
     }
 
